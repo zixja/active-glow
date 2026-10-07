@@ -1,0 +1,34 @@
+/**
+ * @name Active Glow Only
+ * @author Zix
+ * @version 1.2.0
+ * @description Cyan/blue illumination across the selected channel or tab, with glowing text and icons.
+ */
+
+/* Only the selected row is illuminated. No layout or global theme changes. */
+:is(
+  .modeSelected__2ea32 .link__2ea32,
+  #channels [class*="modeSelected_"] [class*="link_"],
+  #channels a[aria-current="page"],
+  [role="tab"][aria-selected="true"]
+) {
+  background: linear-gradient(100deg, rgba(0, 200, 255, 0.22), rgba(65, 130, 255, 0.16)) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 200, 255, 0.80),
+    inset 0 0 20px rgba(0, 200, 255, 0.18),
+    0 0 10px rgba(0, 200, 255, 0.42),
+    0 0 20px rgba(65, 130, 255, 0.24) !important;
+  text-shadow: 0 0 5px rgba(0, 200, 255, 0.70), 0 0 10px rgba(65, 130, 255, 0.40);
+}
+
+/* Keep icon colors and shapes; add light around their visible edges. */
+:is(
+  .modeSelected__2ea32 .link__2ea32,
+  #channels [class*="modeSelected_"] [class*="link_"],
+  #channels a[aria-current="page"],
+  [role="tab"][aria-selected="true"]
+) :is(svg, img) {
+  filter: drop-shadow(0 0 3px rgba(0, 200, 255, 0.65));
+}
+
+/* No animation, sizing changes, or focus-outline overrides. */
